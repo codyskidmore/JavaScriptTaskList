@@ -12,13 +12,9 @@ const domUpdater = new DomUpdater();
 
 // Load event listeners
 (function(){
-    try{
-        form.addEventListener(FormEvents.Submit(), addItemEvent);
-        clearBtn.addEventListener(MouseEvents.Click(), clearTasksEvent);
-        LoadExistingTasks();
-        console.log('it ran.');    
-    }
-    catch(err){
-        errors.innerHTML = err.message;
-    }
+    form.addEventListener(FormEvents.Submit(), addItemEvent);
+    clearBtn.addEventListener(MouseEvents.Click(), clearTasksEvent);
+    LoadExistingTasks();
+    window.onerror = globalErrorHandler;
+    console.log('it ran.');    
 })();
