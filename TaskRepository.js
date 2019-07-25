@@ -8,7 +8,6 @@ class TaskRepository {
 
     createTask(newTaskName) {
         const test = this[_tasks].find( task => task.name === newTaskName);
-        console.log(test);
         if (this[_tasks].find( task => task.name === newTaskName) != null){
             throw `Task ${newTaskName} already exists.`;
         }
