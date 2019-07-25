@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
   <title>Task List</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
             <div class="row">
               <form id="task-form">
                 <div class="input-field col s12">
-                  <input type="text" name="task" id="task">
+                  <input type="text" name="task" id="task-input">
                   <label for="task">New Task</label>
                 </div>
                 <input type="submit" value="Add Task" class="btn">
@@ -29,11 +30,11 @@
           <div class="card-action">
             <h5 id="task-title">Tasks</h5>
             <div class="input-field col s12">
-              <input type="text" name="filter" id="filter">
+              <input type="text" name="filter" id="task-filter">
               <label for="filter">Filter Tasks</label>
             </div>
-            <ul class="collection"></ul>
-            <a href="#" class="clear-tasks btn black" id="clear-tasks">Clear Tasks</a>
+            <ul class="collection" id="task-collection"></ul>
+            <a href="#" class="clear-tasks btn clear-tasks-color" id="clear-button">Clear Tasks</a>
           </div>
         </div>
       </div>
@@ -46,6 +47,7 @@
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <script src="consts.js"></script>
+  <script src="Task.js"></script>
   <script src="TaskRepository.js"></script>
   <script src="app.js"></script>
 </body>
