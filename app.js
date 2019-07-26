@@ -6,15 +6,17 @@ const taskList = document.querySelector('#task-collection');
 const clearBtn = document.querySelector('#clear-button');
 const taskFilter = document.querySelector('#task-filter');
 const taskInput = document.querySelector('#task-input');
-const errors = document.querySelector('#errors');
-const taskRepository = new TaskRepository();
-const domUpdater = new DomUpdater();
+const errorMessages = document.querySelector('#error-messages');
+
+const taskService = new TaskService(new TaskRepository(), new TargetTypeValidator(HtmlTagTypes.InputTag()),
+    new EmptyInputValueValidator('Task Description'), new TargetIdValidator('task-input'), new TaskNameValidator());
+const taskController = new TaskController(taskService, taskList, taskInput, deleteItemEvent, errorMessages);
 
 // Load event listeners
 (function(){
     form.addEventListener(FormEvents.Submit(), addItemEvent);
     clearBtn.addEventListener(MouseEvents.Click(), clearTasksEvent);
-    LoadExistingTasks();
-    window.onerror = globalErrorHandler;
+    taskController.LoadExistingTasks();
+    window.onerror = taskController.globalErrorHandler;
     console.log('it ran.');    
 })();

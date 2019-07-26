@@ -1,17 +1,9 @@
-const _getTasks = Symbol('_getTasks');
-const _tasks = Symbol('_tasks');
-
 class TaskRepository {
     constructor(){
         this[_tasks] = this[_getTasks]();
     }
 
     createTask(newTaskName) {
-        const test = this[_tasks].find( task => task.name === newTaskName);
-        if (this[_tasks].find( task => task.name === newTaskName) != null){
-            throw `Task ${newTaskName} already exists.`;
-        }
-
         const newTask = new Task(newTaskName, this.getNextTaskId());
 
         this[_tasks].push(newTask);
@@ -44,6 +36,7 @@ class TaskRepository {
     clearTasks(){
         localStorage.removeItem('tasks');
         localStorage.removeItem('lastTaskId');
+        this[_tasks] = [];
     }
     getTaskByName(name){
         if (this[_tasks].length === 0)

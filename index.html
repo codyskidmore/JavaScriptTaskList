@@ -12,6 +12,7 @@
 </head>
 <body>
   <div class="container">
+    <div id="error-messages" class="errorMessageBox"></div>
     <div class="row">
       <div class="col s12">
         <div id="main" class="card">
@@ -40,7 +41,6 @@
       </div>
     </div>
   </div>
-  <p id="error"></p>
   <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -49,8 +49,13 @@
   <script src="consts.js"></script>
   <script src="events.js"></script>
   <script src="Task.js"></script>
-  <script src="DomUpdater.js"></script>
+  <script src="symbols.js"></script>
+  <script src="HtmlErrorMessageFormatter.js"></script>
+  <script src="validation.js"></script>
+  <script src="ServiceResponse.js"></script>
   <script src="TaskRepository.js"></script>
+  <script src="TaskService.js"></script>
+  <script src="TaskController.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
