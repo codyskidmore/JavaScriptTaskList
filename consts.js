@@ -1,3 +1,9 @@
+class HtmlTagTypes{
+    static InputTag() {
+        return 'INPUT';
+    }
+}
+
 class MouseEvents {
     static Click() {
         return 'click';
