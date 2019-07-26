@@ -52,4 +52,14 @@ class TaskController{
         const tasks = this[_taskService].getAllTasks();
         tasks.forEach(task => this[_insertLiTag](taskList, task, this[_deleteItemEvent]));
     }
+    filterTaskList(e){
+        const filterText = e.target.value.toLowerCase();
+        Array.from(this[_taskList].children).forEach(task => {
+            task.style.display = 'block';
+            const itemText = task.firstChild.textContent.toLowerCase();
+            if (!itemText.includes(filterText)){
+                task.style.display = 'none';
+            }
+        })
+    }
 }

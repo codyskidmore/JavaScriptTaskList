@@ -43,6 +43,10 @@ class TaskExistsEvent extends EventInfo{
         super(EventId.taskAlreadyDefinedEvent(), `Task '${taskName}' already exists.`)
     }
 }
+
+function filterItemEvent(e){
+    taskController.filterTaskList(e);
+}
 function addItemEvent(e){
     taskController.addItemEvent(e);
     e.preventDefault();

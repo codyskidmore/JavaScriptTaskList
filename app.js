@@ -16,6 +16,7 @@ const taskController = new TaskController(taskService, taskList, taskInput, dele
 (function(){
     form.addEventListener(FormEvents.Submit(), addItemEvent);
     clearBtn.addEventListener(MouseEvents.Click(), clearTasksEvent);
+    taskFilter.addEventListener(KeyboardEvents.KeyUp(), filterItemEvent)
     taskController.LoadExistingTasks();
     // Global exception handler.
     window.onerror = globalErrorHandler;
