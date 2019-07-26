@@ -6,6 +6,7 @@ class TaskController{
         this[_deleteItemEvent] = deleteItemEvent;
         this[_errorMessages] = errorBox;
     }
+    
     addItemEvent(e){
         // Best I can do /w guard code for now. Will 
         // refactor once I discover a better way.
@@ -23,6 +24,7 @@ class TaskController{
         this[_insertLiTag](taskList, serviceResponse.data);
         taskInput.value = '';
     }
+
     [_insertLiTag](taskList, newTask){
         const li = document.createElement('li');
         li.className = "collection-item";
@@ -35,6 +37,7 @@ class TaskController{
         li.appendChild(link);
         taskList.appendChild(li);
     }
+
     clearTasksEvent(e){
         this[_taskService].clearTasks();
 
@@ -44,14 +47,17 @@ class TaskController{
 
         e.preventDefault();
     }
+
     deleteItemEvent(e){
         this[_taskService].deleteTask(parseInt(e.target.parentElement.parentElement.id));
         this[_taskList].removeChild(e.target.parentElement.parentElement)
     }
+
     LoadExistingTasks(){
         const tasks = this[_taskService].getAllTasks();
         tasks.forEach(task => this[_insertLiTag](taskList, task, this[_deleteItemEvent]));
     }
+
     filterTaskList(e){
         const filterText = e.target.value.toLowerCase();
         Array.from(this[_taskList].children).forEach(task => {

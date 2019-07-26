@@ -1,3 +1,4 @@
+// Makes sure our event ids are unique.
 class EventId{
     static invalidTargetTypeEvent() {
         return 1;
@@ -47,18 +48,22 @@ class TaskExistsEvent extends EventInfo{
 function filterItemEvent(e){
     taskController.filterTaskList(e);
 }
+
 function addItemEvent(e){
     taskController.addItemEvent(e);
     e.preventDefault();
 }
+
 function clearTasksEvent(e){
     taskController.clearTasksEvent(e);
     e.preventDefault();
 }
+
 function deleteItemEvent(e){
     taskController.deleteItemEvent(e);
     e.preventDefault();
 }
+
 function globalErrorHandler(msg, url, line, col, error) {
     ///// Borrowed this from a guy who borrowed it from 
     ///// someone else and put it on StackOverflow.
