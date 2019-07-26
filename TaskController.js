@@ -37,12 +37,16 @@ class TaskController{
     }
     clearTasksEvent(e){
         this[_taskService].clearTasks();
-        Array.from(taskList.children).forEach(child => child.remove());
+
+        while(this[_taskList].firstChild){
+            this[_taskList].removeChild(this[_taskList].firstChild);
+        }
+
         e.preventDefault();
     }
     deleteItemEvent(e){
         this[_taskService].deleteTask(parseInt(e.target.parentElement.parentElement.id));
-        e.target.parentElement.parentElement.remove();        
+        this[_taskList].removeChild(e.target.parentElement.parentElement)
     }
     LoadExistingTasks(){
         const tasks = this[_taskService].getAllTasks();
