@@ -29,7 +29,7 @@ class InvalidTargetTypeEvent extends EventInfo{
 
 class EmptyInputValueEvent extends EventInfo{
     constructor(targetName){
-        super(EventId.emptyInvalidInputValueEvent(), `Invalid input value for ${targetName}. Expected : ${expectedInput}, Acutal must have a value.`);
+        super(EventId.emptyInvalidInputValueEvent(), `Invalid input value for ${targetName} cannot be empty.`);
     }
 }
 

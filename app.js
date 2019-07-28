@@ -1,12 +1,12 @@
 const title = "Task List [Part 2] - Delete & Filter Tasks";
 document.title = title;
 
-const form = document.querySelector('#task-form');
-const taskList = document.querySelector('#task-collection');
-const clearBtn = document.querySelector('#clear-button');
-const taskFilter = document.querySelector('#task-filter');
-const taskInput = document.querySelector('#task-input');
-const errorMessages = document.querySelector('#error-messages');
+const form = document.getElementById('task-form');
+const taskList = document.getElementById('task-collection');
+const clearBtn = document.getElementById('clear-button');
+const taskFilter = document.getElementById('task-filter');
+const taskInput = document.getElementById('task-input');
+const errorMessages = document.getElementById('error-messages');
 
 const taskService = new TaskService(new TaskRepository(), 
     new TargetTypeValidator(HtmlTagTypes.InputTag()),
